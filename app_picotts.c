@@ -166,8 +166,8 @@ static int picotts_exec(struct ast_channel *chan, const char *data)
     args.interrupt = AST_DIGIT_ANY;
 
 
-  args.text = ast_strip_quoted(args.text, "\"", "\"");
-  args.lang = ast_strip_quoted(args.lang, "\"", "\"");
+  //args.text = ast_strip_quoted(args.text, "\"", "\"");
+  //args.lang = ast_strip_quoted(args.lang, "\"", "\"");
   if (ast_strlen_zero(args.text))
     {
       ast_log(LOG_WARNING, "PicoTTS: No text passed for synthesis.\n");
