@@ -134,6 +134,7 @@ static int delete_wave(const char *filedata)
 static int picotts_exec(struct ast_channel *chan, const char *data)
 {
   int res = 0;
+  int res_sox = 0;
   char *mydata;
   int writecache = 0;
   char MD5_name[33] = "";
@@ -254,8 +255,9 @@ static int picotts_exec(struct ast_channel *chan, const char *data)
   res = picotts_text_to_wave(rawpico_tmp_name, voice_name, args.text);
 
   char temp[1024];
-  sprintf(temp, "sox -v 0.8 %s -r 8000 -c1 %s resample -ql", rawpico_tmp_name, raw_tmp_name);
-  system(temp);
+  sprintf(temp, "sox -v 0.8 %s -r 8000 -c1 %s rate -ql", rawpico_tmp_name, raw_tmp_name);
+  res_sox = system(temp);
+  ast_log(LOG_WARNING, "Sox: command %s, code %d.\n", temp, res_sox);
   unlink(rawpico_tmp_name);
   sample_rate = 16000;
 
