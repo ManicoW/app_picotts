@@ -15,7 +15,7 @@ LIBS+=
 CFLAGS+= -fPIC -Wall -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -D_REENTRANT  -D_GNU_SOURCE  
 
 all: _all
-	@echo " +-------- app_espeak Build Complete --------+"  
+	@echo " +-------- app_picotts Build Complete --------+"  
 	@echo " + app_picotts has successfully been built,   +"  
 	@echo " + and can be installed by running:          +"
 	@echo " +                                           +"
